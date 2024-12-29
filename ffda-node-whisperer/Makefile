@@ -18,7 +18,9 @@ MAKE_VARS += \
 	NL_LIB="libnl-tiny" \
 	NL_GENL_LIB="libnl-tiny"
 
-Build/Compile=$(call Build/Compile/Default)
+define Build/Compile
+$(call Build/Compile/Default,all monitor)
+endef
 
 define Package/ffda-node-whisperer
   TITLE:=Package to provide diagnostic information using WiFi beacons
@@ -36,6 +38,7 @@ endef
 define Package/ffda-node-whisperer/install
 	$(INSTALL_DIR) $(1)/usr/bin $(1)/etc/init.d $(1)/etc/config $(1)/lib/gluon/upgrade
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/node-whisperer $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/monitor $(1)/usr/bin/node-whisperer-monitor
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/openwrt/node-whisperer/files/node-whisperer.init $(1)/etc/init.d/node-whisperer
 	$(CP) $(PKG_BUILD_DIR)/openwrt/node-whisperer/files/node-whisperer.uci $(1)/etc/config/node-whisperer
 	$(INSTALL_BIN) ./files/node-whisperer.upgrade.lua $(1)/lib/gluon/upgrade/150-node-whisperer
