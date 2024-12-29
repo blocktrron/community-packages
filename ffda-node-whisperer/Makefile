@@ -6,7 +6,7 @@ PKG_RELEASE:=1
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL=https://github.com/blocktrron/node-whisperer.git
 PKG_SOURCE_DATE:=2024-12-29
-PKG_SOURCE_VERSION:=c7142b909974632cc0d7781642e3270f9bf67895
+PKG_SOURCE_VERSION:=71124ab396a9ae9bc5af3abb6dc22eabadb6fef5
 
 PKG_MAINTAINER:=David Bauer <mail@david-bauer.net>
 PKG_LICENSE:=GPL-2.0-or-later
