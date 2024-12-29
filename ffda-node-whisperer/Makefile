@@ -14,9 +14,6 @@ PKG_LICENSE:=GPL-2.0-or-later
 include $(TOPDIR)/../package/gluon.mk
 
 MAKE_PATH:=src
-MAKE_VARS += \
-	NL_LIB="libnl-tiny" \
-	NL_GENL_LIB="libnl-tiny"
 
 define Build/Compile
 $(call Build/Compile/Default,all monitor)
@@ -24,7 +21,7 @@ endef
 
 define Package/ffda-node-whisperer
   TITLE:=Package to provide diagnostic information using WiFi beacons
-  DEPENDS:=+gluon-core +libubox +libubus +libblobmsg-json +libnl-tiny +libbatadv +libgluonutil
+  DEPENDS:=+gluon-core +libubox +libubus +libblobmsg-json +libnl-genl +libbatadv +libgluonutil
 endef
 
 define Package/ffda-node-whisperer/description
